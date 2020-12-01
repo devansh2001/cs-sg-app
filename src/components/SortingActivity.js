@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, InputGroup, FormControl } from 'react-bootstrap';
 class SortingActivity extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentList: []
+            currentList: [],
+            currentString: ''
         }
     }
 
@@ -29,11 +30,21 @@ class SortingActivity extends Component {
         let sorted = this.bubbleSort(list);
     }
 
+    onCurrentStringChange = async (e) => {
+        const curr = e.target.value;
+        await this.setState({
+            currentString: curr
+        });
+        await console.log(this.state.currentString);
+    }
+
+    parseStringToList = () => {
+        const currentString = this.state.currentString;
+    }
+
     render() {
         return (
             <div>
-                Hello World
-
                 <Container>
                     <h2>Sorting Activity</h2>
                     <hr/>
@@ -41,10 +52,12 @@ class SortingActivity extends Component {
                         <Col>
                             <Row>
                                 <Col>
-                                    Inputs
+                                    Input a list separated by commas 
                                 </Col>
                                 <Col>
-                                    Accept Params Here
+                                    <InputGroup className='mb-3'>
+                                        <FormControl onChange={this.onCurrentStringChange} placeholder='Example: 10,7,6,9,1' />
+                                    </InputGroup>
                                 </Col>
                             </Row>
                             <hr/>
