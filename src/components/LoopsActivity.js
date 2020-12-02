@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 
+
 class LoopsActivity extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            originalPattern: '',
+            userPattern: ''
         }
     }
     render() {
+        let boxes = [];
+        for (let i = 0; i < 4; i++) {    
+            for (let j = 0; j <= i; j++) {
+                boxes.push("*");
+            }
+            boxes.push(<br/>);
+        }
         return (
             <Container style={{textAlign: 'center'}}>
                 <h2>Loops Activity</h2>
@@ -39,6 +48,9 @@ class LoopsActivity extends Component {
                         <Col>
                             <Container>
                                 <h5>Correct Pattern</h5>
+                                <Container style={{alignContent: "flex-start"}}>
+                                    {boxes}
+                                </Container>
                             </Container>
                         </Col>
                         <Col>
