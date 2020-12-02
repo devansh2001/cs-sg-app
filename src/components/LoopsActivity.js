@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 
 const OriginalPattern  = () => {
-    let boxes = [];
+    let stars = [];
     for (let i = 0; i < 5; i++) {    
         for (let j = 0; j <= i; j++) {
-            boxes.push("* ");
+            stars.push("* ");
         }
-        boxes.push(<br/>);
+        stars.push(<br/>);
     }
     console.log("entered");
-    return (
-        <div >  
-            {boxes} 
+    return (  
+        <div className="star-pattern">  
+            {stars} 
         </div>
     )
 }
@@ -20,19 +20,25 @@ class LoopsActivity extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userPattern: '',
+            userPattern: [],
         }
     }
+
+    // TODO: Complete the displayPattern method below using a nested for loop
+    displayPattern = (pattern) => {
+        return pattern;
+    }
     render() {
-        // let boxes = [];
+        // let stars = [];
         // for (let i = 0; i < 5; i++) {    
         //     for (let j = 0; j <= i; j++) {
-        //         boxes.push("* ");
+        //         stars.push("* ");
         //     }
-        //     boxes.push(<br/>);
+        //     stars.push(<br/>);
         // }
         return (
             <Container style={{textAlign: 'center'}}>
+                <br/>
                 <h2>Loops Activity</h2>
                 <Col>
                     <Row>
@@ -61,9 +67,9 @@ class LoopsActivity extends Component {
                         <Col>
                             <Container>
                                 <h5>Correct Pattern</h5>
-                                <Container >
+                                <Container style={{color: 'blue', width: '20%'}}>
                                     <Col>
-                                    <Row className="star-pattern">
+                                    <Row >
                                         <OriginalPattern/>      
                                     </Row>
                                     </Col>
