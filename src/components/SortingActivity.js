@@ -22,6 +22,18 @@ class SortingActivity extends Component {
         }
         for (let i = 0; i < list.length - 1; i++) {
             for (let j = 0; j < list.length - i - 1; j++) {
+                // on every iteration, show simulated states
+                let currentSimulatedStates = this.state.simulationSteps;
+                // adding a deepcopy of the list
+                currentSimulatedStates.push({
+                    'array': list.map(element => element),
+                    'i': j,
+                    'j': j + 1
+                });
+                this.setState({
+                    simulationSteps: currentSimulatedStates
+                })
+
                 if (list[j] > list[j + 1]) {
                     console.log("Sorting");
                     let temp = list[j];
@@ -29,17 +41,7 @@ class SortingActivity extends Component {
                     list[j + 1] = temp;
                 }
 
-                // on every iteration, show simulated states
-                let currentSimulatedStates = this.state.simulationSteps;
-                // adding a deepcopy of the list
-                currentSimulatedStates.push({
-                    'array': list.map(element => element),
-                    'i': i,
-                    'j': j
-                });
-                this.setState({
-                    simulationSteps: currentSimulatedStates
-                })
+                
             }
         }
         console.log(list);
@@ -58,8 +60,8 @@ class SortingActivity extends Component {
         let listCopy = this.state.currentList.map(element => element);
         const initialSteps = [{
             'array': listCopy.map(element => element),
-            'i': null,
-            'j': null
+            'i': 0,
+            'j': 1
         }]
         await this.setState({
             simulationSteps: initialSteps
@@ -135,6 +137,51 @@ class SortingActivity extends Component {
         return display;
     }
 
+    formatSimulationStates = (states) => {
+        if (states === undefined || states === null) {
+            return;
+        }
+
+        let formattedStates = [];
+        for (let i = 0; i < states.length; i++) {
+            let formattedArray = this.formatArray(states[i]);
+            formattedStates.push(<li> { formattedArray } </li>);
+        }
+        return formattedStates;
+    }
+
+    formatArray = (state) => {
+        if (state === null || state === undefined) {
+            return;
+        }
+
+        const array = state['array']
+        if (array === null || array === undefined || array.length === 0) {
+            return;
+        }
+
+        const redColor = '#FF0000';
+        const greenColor = '#00FF00';
+        const i = state['i'];
+        const j = state['j'];
+
+        let out = [];
+        for (let x = 0; x < array.length; x++) {
+            let styledElement;
+            if (x === i) {
+                styledElement = (<span style={{color: redColor}}> { array[x] } </span>);
+            } else if (x === j) {
+                styledElement = (<span style={{color: greenColor}}> { array[x] } </span>);
+            } else {
+                styledElement = ( <span> { array[x] } </span>)
+            }
+
+            out.push(<span> { styledElement } </span>)
+        }
+
+        return out;
+    }
+
     render() {
         return (
             <div>
@@ -145,7 +192,7 @@ class SortingActivity extends Component {
                         <Col>
                             <Row>
                                 <Col>
-                                    Please Input a List of Numbers to Sort -->
+                                    Please Input a List of Numbers to Sort
                                 </Col>
                                 <Col>
                                     <InputGroup className='mb-3'>
@@ -155,7 +202,7 @@ class SortingActivity extends Component {
                             </Row>
                             <Row>
                                 <Col>
-                                    Your Input List is -->
+                                    Your Input List is
                                 </Col>
                                 <Col>
                                     [ {this.state.currentList.toString()} ]
@@ -184,7 +231,7 @@ class SortingActivity extends Component {
                         <Col>
                                 Simulation Results
                                 <ul className={'sim-list'}>
-                                    { this.showSimulatedSteps(this.state.simulationSteps) }
+                                    { this.formatSimulationStates(this.state.simulationSteps) }
                                 </ul>
 
                         </Col>
