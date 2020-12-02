@@ -5,7 +5,8 @@ class SortingActivity extends Component {
         super(props);
         this.state = {
             currentList: [],
-            currentString: ''
+            currentString: '',
+            isInputValid: false
         }
     }
 
@@ -35,11 +36,49 @@ class SortingActivity extends Component {
         await this.setState({
             currentString: curr
         });
+        const isValid = this.parseStringToList();
         await console.log(this.state.currentString);
     }
 
     parseStringToList = () => {
         const currentString = this.state.currentString;
+        // If current string is empty, input is invalid
+        if (currentString === '') {
+            this.setState({
+                isInputValid: false,
+                currentList: []
+            })
+        }
+
+        // if current string is non empty, but has no commas, input is invalid so return
+        let split = currentString.split(",");
+        if (split === undefined || split === null) {
+            this.setState({
+                isInputValid: false
+            })
+            return false;
+        }
+
+        // if current string is non-empty and input has commas, but has non-numbers, input is invalid so return
+        let numList = [];
+        for (let i = 0; i < split.length; i++) {
+            const number = parseInt(split[i]);
+            if (isNaN(number)) {
+                this.setState({
+                    isInputValid: false
+                })
+                return false;
+            }
+            numList.push(parseInt(split[i]));
+        }
+
+        // if input is perfectly valid, set state and return
+        this.setState({
+            currentList: numList,
+            isInputValid: true
+        });
+
+        console.log({numList: numList});
     }
 
     render() {
@@ -60,15 +99,23 @@ class SortingActivity extends Component {
                                     </InputGroup>
                                 </Col>
                             </Row>
+                            <Row>
+                                <Col>
+                                    List to sort
+                                </Col>
+                                <Col>
+                                    [ {this.state.currentList.toString()} ]
+                                </Col>
+                            </Row>
                             <hr/>
                             <Row>
                                 <Col>
-                                    <Button onClick={this.onRunSortClick}>
+                                    <Button disabled={!this.state.isInputValid} onClick={this.onRunSortClick}>
                                         Run My Sort
                                     </Button>
                                 </Col>
                                 <Col>
-                                    <Button onClick={this.onSimulateSortClick}>
+                                    <Button disabled={!this.state.isInputValid} onClick={this.onSimulateSortClick}>
                                         Simulate Bubble Sort  
                                     </Button>
                                 </Col>
