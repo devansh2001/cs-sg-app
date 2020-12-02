@@ -6,29 +6,70 @@ class SortingActivity extends Component {
         this.state = {
             currentList: [],
             currentString: '',
-            isInputValid: false
+            isInputValid: false,
+            simulationSteps: []
         }
     }
 
     // TASK: Complete the 'myBubbleSort' method below
-    myBubbleSort = (list) => {
+    bubbleSort = (list) => {
         return list;
     }
 
-    bubbleSort = (list) => {
+    simulateCompletedBubbleSort = (list) => {
+        if (list === undefined || list === null || list.length === 0 || list.length === 1) {
+            return;
+        }
+        for (let i = 0; i < list.length - 1; i++) {
+            for (let j = 0; j < list.length - i - 1; j++) {
+                if (list[j] > list[j + 1]) {
+                    console.log("Sorting");
+                    let temp = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = temp;
+                }
+
+                // on every iteration, show simulated states
+                let currentSimulatedStates = this.state.simulationSteps;
+                // adding a deepcopy of the list
+                currentSimulatedStates.push({
+                    'array': list.map(element => element),
+                    'i': i,
+                    'j': j
+                });
+                this.setState({
+                    simulationSteps: currentSimulatedStates
+                })
+            }
+        }
+        console.log(list);
         return list;
     }
 
     onRunSortClick = () => {
         console.log("Running Student's Code");
         let list = this.state.currentList;
-        let sorted = this.myBubbleSort(list);
+        let sorted = this.bubbleSort(list);
     }
 
-    onSimulateSortClick = () => {
+    onSimulateSortClick = async () => {
         console.log("Running Actual Bubble Sort");
-        let list = this.state.currentList;
-        let sorted = this.bubbleSort(list);
+        console.log(this.state.simulationSteps);
+        let listCopy = this.state.currentList.map(element => element);
+        const initialSteps = [{
+            'array': listCopy.map(element => element),
+            'i': null,
+            'j': null
+        }]
+        await this.setState({
+            simulationSteps: initialSteps
+        })
+        let sorted = this.simulateCompletedBubbleSort(listCopy);
+        console.log(listCopy);
+        console.log(sorted);
+        console.log(this.state.simulationSteps);
+
+        
     }
 
     onCurrentStringChange = async (e) => {
@@ -81,6 +122,19 @@ class SortingActivity extends Component {
         console.log({numList: numList});
     }
 
+    showSimulatedSteps = (steps) => {
+        if (steps === null || steps === undefined || steps.length === 0) {
+            return;
+        }
+        let display = [];
+        for (let i = 0; i < steps.length; i++) {
+            const currentState = <li> { steps[i]['array'].toString() } </li>
+            display.push(currentState);
+        }
+
+        return display;
+    }
+
     render() {
         return (
             <div>
@@ -91,7 +145,7 @@ class SortingActivity extends Component {
                         <Col>
                             <Row>
                                 <Col>
-                                    Input a list separated by commas 
+                                    Please Input a List of Numbers to Sort -->
                                 </Col>
                                 <Col>
                                     <InputGroup className='mb-3'>
@@ -101,7 +155,7 @@ class SortingActivity extends Component {
                             </Row>
                             <Row>
                                 <Col>
-                                    List to sort
+                                    Your Input List is -->
                                 </Col>
                                 <Col>
                                     [ {this.state.currentList.toString()} ]
@@ -128,7 +182,11 @@ class SortingActivity extends Component {
                             My Sort Results
                         </Col>
                         <Col>
-                            Simulation Results
+                                Simulation Results
+                                <ul className={'sim-list'}>
+                                    { this.showSimulatedSteps(this.state.simulationSteps) }
+                                </ul>
+
                         </Col>
                     </Row>
                 </Container>
