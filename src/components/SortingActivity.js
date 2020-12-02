@@ -7,12 +7,15 @@ class SortingActivity extends Component {
             currentList: [],
             currentString: '',
             isInputValid: false,
-            simulationSteps: []
+            simulationSteps: [],
+            userCodeOutput: []
         }
     }
 
     // TASK: Complete the 'myBubbleSort' method below
     bubbleSort = (list) => {
+        
+
         return list;
     }
 
@@ -48,10 +51,15 @@ class SortingActivity extends Component {
         return list;
     }
 
-    onRunSortClick = () => {
+    onRunSortClick = async () => {
         console.log("Running Student's Code");
-        let list = this.state.currentList;
-        let sorted = this.bubbleSort(list);
+        let listCopy = this.state.currentList.map(element => element);
+        let sorted = this.bubbleSort(listCopy);
+        await this.setState({
+            userCodeOutput: sorted
+        })
+
+        await console.log(this.state.userCodeOutput)
     }
 
     onSimulateSortClick = async () => {
@@ -177,8 +185,10 @@ class SortingActivity extends Component {
             }
 
             out.push(<span> { styledElement } </span>)
+            out.push(<span>,</span>)
         }
 
+        out.pop();
         return out;
     }
 
@@ -227,6 +237,17 @@ class SortingActivity extends Component {
                     <Row>
                         <Col>
                             My Sort Results
+                                <ul className={'sim-list'}>
+                                    <li>
+                                        {
+                                            this.formatArray({
+                                                'array': this.state.userCodeOutput,
+                                                'i': null,
+                                                'j': null
+                                            })
+                                        }
+                                    </li>
+                                </ul>
                         </Col>
                         <Col>
                                 Simulation Results
