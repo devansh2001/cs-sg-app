@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 30px;
 }
 
 code {
@@ -14,4 +15,8 @@ code {
 .star-pattern {
   text-align: left;
   height: 110px;
+}
+
+.sim-list {
+  list-style-type: none
 }
