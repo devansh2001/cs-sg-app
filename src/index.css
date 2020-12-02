@@ -12,6 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.star-pattern {
+  text-align: left;
+  height: 110px;
+}
 
 .sim-list {
   list-style-type: none

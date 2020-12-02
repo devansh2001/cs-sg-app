@@ -1,12 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import SortingActivity from './components/SortingActivity';
+import LoopsActivity from './components/LoopsActivity';
 
 function App() {
   return (
-    <div className="App">
-      <SortingActivity />
-    </div>
+    <LoopsActivity/>
   );
 }
 
