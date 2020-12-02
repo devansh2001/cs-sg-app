@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col, Button} from 'react-bootstrap';
 
 const OriginalPattern  = () => {
     let stars = [];
@@ -21,13 +21,35 @@ class LoopsActivity extends Component {
         super(props);
         this.state = {
             userPattern: [],
+            isPatternPresent: true
         }
     }
 
-    // TODO: Complete the displayPattern method below using a nested for loop
-    displayPattern = (pattern) => {
-        return pattern;
+    // TODO: Complete the completePattern method below using a nested for loop
+
+    completePattern = () => {
+        let pattern = [];
+        for (let i = 0; i < 5; i++) {    
+        for (let j = 0; j <= i; j++) {
+            pattern.push("* ");
+        }
+        pattern.push(<br/>);
     }
+        
+        this.setState ({ userPattern: pattern });
+    }
+
+    displayPattern = () => {
+        this.completePattern();
+        let studentPattern = this.state.userPattern;
+        return (  
+            <div className="star-pattern">  
+                {studentPattern} 
+            </div>
+        )
+    }
+
+    
     render() {
         // let stars = [];
         // for (let i = 0; i < 5; i++) {    
@@ -55,7 +77,7 @@ class LoopsActivity extends Component {
                                     ranges from 1 to 5. 
                                 </h5>
                                 <br></br>
-                                <h5>Wite a nested for loop to display the same pattern on the right hand side.
+                                <h5>Write a nested for loop to display the same pattern on the right hand side.
                                     Hit submit to test your code periodically and compare your pattern with the correct 
                                     one of the left hand side.
                                 </h5>
@@ -79,6 +101,18 @@ class LoopsActivity extends Component {
                         <Col>
                             <Container>
                                 <h5>Your Pattern</h5>
+                                <Container >
+                                    <Col>
+                                        <Row >
+                                            {this.state.userPattern}      
+                                        </Row>
+                                        <hr/>
+                                        <Button disabled={!this.state.isPatternPresent} onClick={this.displayPattern}>
+                                            Display pattern
+                                        </Button>
+
+                                    </Col>
+                                </Container>
                             </Container>
                         </Col>
                     </Row>
