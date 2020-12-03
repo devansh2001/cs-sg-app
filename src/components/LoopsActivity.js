@@ -71,8 +71,8 @@ class LoopsActivity extends Component {
                         <Col>
                             <Container>
                                 <h5>Correct Pattern</h5>
-                                <br/>
-                                <Container style={{color: 'blue', width: '20%'}}>
+                               
+                                <Container style={{color: 'blue', width: '60%'}}>
                                     <Col>
                                     <Row >
                                         <OriginalPattern/>      
@@ -84,15 +84,15 @@ class LoopsActivity extends Component {
                         <Col>
                             <Container>
                                 <h5>Your Pattern</h5>
-                                <br/>
+                               
                                 <Container style={{color: 'red', width: '60%'}}>
                                     <Col>
                                         <div className="star-pattern">
                                             {this.state.userPattern}      
                                         </div>
                                         <br/>
-                                        <hr/>
                                         <br/>
+                                        <hr/>
                                         <Button onClick={this.completePattern}>
                                             Display Pattern
                                         </Button>
