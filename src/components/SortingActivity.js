@@ -195,14 +195,15 @@ class SortingActivity extends Component {
     render() {
         return (
             <div>
-                <Container>
+                <Container style={{textAlign: 'center'}}>
+                    <br/>
                     <h2>Sorting Activity</h2>
                     <hr/>
                     <Row>
                         <Col>
                             <Row>
                                 <Col>
-                                    Please Input a List of Numbers to Sort
+                                    <h4>Please Input a List of Numbers to Sort</h4>
                                 </Col>
                                 <Col>
                                     <InputGroup className='mb-3'>
@@ -210,15 +211,18 @@ class SortingActivity extends Component {
                                     </InputGroup>
                                 </Col>
                             </Row>
+                            <br/>
                             <Row>
                                 <Col>
-                                    Your Input List is
+                                    <h4>Your Input List is</h4>
                                 </Col>
                                 <Col>
-                                    [ {this.state.currentList.toString()} ]
+                                    <h4>
+                                        [ {this.state.currentList.toString()} ]
+                                    </h4>
                                 </Col>
                             </Row>
-                            <hr/>
+                            <br/>
                             <Row>
                                 <Col>
                                     <Button disabled={!this.state.isInputValid} onClick={this.onRunSortClick}>
@@ -233,26 +237,32 @@ class SortingActivity extends Component {
                             </Row>
                         </Col>
                     </Row>
+                    
                     <hr/>
+                    <br/>
                     <Row>
                         <Col>
-                            My Sort Results
+                            <h4>My Sort Results</h4>
                                 <ul className={'sim-list'}>
-                                    <li>
-                                        {
-                                            this.formatArray({
-                                                'array': this.state.userCodeOutput,
-                                                'i': null,
-                                                'j': null
-                                            })
-                                        }
-                                    </li>
+                                    <h4>
+                                        <li>
+                                            {
+                                                this.formatArray({
+                                                    'array': this.state.userCodeOutput,
+                                                    'i': null,
+                                                    'j': null
+                                                })
+                                            }
+                                        </li>
+                                    </h4>
                                 </ul>
                         </Col>
                         <Col>
-                                Simulation Results
+                               <h4> Simulation Results</h4>
                                 <ul className={'sim-list'}>
-                                    { this.formatSimulationStates(this.state.simulationSteps) }
+                                    <h4>
+                                        { this.formatSimulationStates(this.state.simulationSteps) }
+                                    </h4>
                                 </ul>
 
                         </Col>

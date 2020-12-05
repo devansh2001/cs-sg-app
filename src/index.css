@@ -20,3 +20,6 @@ code {
 .sim-list {
   list-style-type: none
 }
+hr {
+  border: 1px solid white;
+}
