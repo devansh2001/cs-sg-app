@@ -198,7 +198,7 @@ class SortingActivity extends Component {
                 <Container style={{textAlign: 'center'}}>
                     <br/>
                     <h2>Sorting Activity</h2>
-                    <hr/>
+                    <br/>
                     <Row>
                         <Col>
                             <Row>
@@ -238,7 +238,7 @@ class SortingActivity extends Component {
                         </Col>
                     </Row>
                     
-                    <hr/>
+                    
                     <br/>
                     <Row>
                         <Col>
