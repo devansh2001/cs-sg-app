@@ -11,7 +11,7 @@ const OriginalPattern  = () => {
     }
     console.log("entered");
     return (  
-        <div className="star-pattern">  
+        <div className="star-pattern-one">  
             {stars} 
         </div>
     )
@@ -72,7 +72,12 @@ class LoopsActivity extends Component {
                             <Container>
                                 <h5>Correct Pattern</h5>
                                
-                                <Container style={{color: 'blue', width: '60%'}}>
+                                <Container 
+                                    style={{
+                                        color: '#7FFF00', 
+                                        width: '60%',
+                                        marginLeft: "200px"
+                                    }}>
                                     <Col>
                                     <Row >
                                         <OriginalPattern/>      
@@ -85,17 +90,24 @@ class LoopsActivity extends Component {
                             <Container>
                                 <h5>Your Pattern</h5>
                                
-                                <Container style={{color: 'red', width: '60%'}}>
+                                <Container 
+                                    style={{
+                                        color: 'yellow', 
+                                        width: '70%',
+                                        textAlign: "center"
+                                    }}>
                                     <Col>
-                                        <div className="star-pattern">
+                                        <div className="star-pattern-two">
                                             {this.state.userPattern}      
                                         </div>
                                         <br/>
                                         <br/>
-                                        <hr/>
-                                        <Button onClick={this.completePattern}>
-                                            Display Pattern
-                                        </Button>
+                                        <br/>
+                                        <div style={{marginLeft: "12px"}}>
+                                            <Button onClick={this.completePattern}>
+                                                Display Pattern
+                                            </Button>
+                                        </div>
 
                                     </Col>
                                 </Container>
