@@ -198,7 +198,7 @@ class SortingActivity extends Component {
                 <Container style={{textAlign: 'center'}}>
                     <br/>
                     <h2>Sorting Activity</h2>
-                    <br/>
+                    <hr/>
                     <Row>
                         <Col>
                             <Row>
@@ -222,7 +222,7 @@ class SortingActivity extends Component {
                                     </h4>
                                 </Col>
                             </Row>
-                            <br/>
+                            
                             <Row>
                                 <Col>
                                     <Button disabled={!this.state.isInputValid} onClick={this.onRunSortClick}>
@@ -237,9 +237,8 @@ class SortingActivity extends Component {
                             </Row>
                         </Col>
                     </Row>
-                    
-                    
                     <br/>
+                    <hr/>
                     <Row>
                         <Col>
                             <h4>My Sort Results</h4>

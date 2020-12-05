@@ -12,9 +12,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.star-pattern {
+.star-pattern-one {
   text-align: left;
   height: 120px;
+}
+.star-pattern-two {
+  text-align: left;
+  height: 120px;
+  margin-left: 100px;
 }
 
 .sim-list {
