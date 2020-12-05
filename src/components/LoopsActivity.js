@@ -30,10 +30,10 @@ class LoopsActivity extends Component {
         // student code
         let pattern = [];
         for (let i = 0; i < 5; i++) {    
-        for (let j = 0; j <= i; j++) {
-            pattern.push("* ");
-        }
-        pattern.push(<br/>);
+            for (let j = 0; j <= i; j++) {
+                pattern.push("* ");
+            }
+            pattern.push(<br/>);
         }
         this.setState ({ userPattern: pattern });
         return pattern;
@@ -56,7 +56,7 @@ class LoopsActivity extends Component {
                                     using nested for loops. The first for loop specifies the row number 
                                     for the pattern which in this case runs from 1 to 5. The second for loop 
                                     specifies the number of stars needed on each row of the pattern, which again
-                                    ranges from 1 to 5. 
+                                    ranges from 1 to 5, depending on the row number. 
                                 </h5>
                                 <br></br>
                                 <h5>Write a nested for loop to display the same pattern on the right hand side.

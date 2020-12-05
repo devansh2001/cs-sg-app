@@ -17,7 +17,7 @@ function App() {
         color: "white",
         overflow: "scroll"
       }}>
-      <VariablesActivity/>
+      <SortingActivity/>
     </div>
   );
 }
