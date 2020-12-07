@@ -25,6 +25,12 @@ code {
 .sim-list {
   list-style-type: none
 }
+
+.my-navigation-button {
+  margin: 10px;
+}
+
 hr {
   border: 1px solid white;
 }
+

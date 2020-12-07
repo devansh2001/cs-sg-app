@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 const OriginalPattern  = () => {
     let stars = [];
@@ -22,6 +23,14 @@ class LoopsActivity extends Component {
         this.state = {
             userPattern: 'Complete the TODO to see your pattern here!',
         }
+    }
+
+    handleProceed = () => {
+        browserHistory.push('/sorting');
+    }
+
+    handleBack = () => {
+        browserHistory.push('/conditional');
     }
 
     // TODO: Complete the completePattern method below using a nested for loop
@@ -116,6 +125,13 @@ class LoopsActivity extends Component {
                     </Row>
                 </Col>
 
+                <Button onClick={this.handleBack} className={'my-navigation-button'} >
+                    Go To Previous Activity!
+                </Button>
+
+                <Button onClick={this.handleProceed} className={'my-navigation-button'} >
+                    Proceed To Next Activity!
+                </Button>
             </Container>
             
         );

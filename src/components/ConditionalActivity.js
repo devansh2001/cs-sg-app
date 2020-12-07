@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, Container, Card} from 'react-bootstrap'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { browserHistory } from 'react-router';
 
 class ConditionalActivity extends Component {
     constructor(props) {
@@ -16,6 +17,14 @@ class ConditionalActivity extends Component {
         greatest: "",
         least: ""
     };
+
+    handleProceed = () => {
+        browserHistory.push('/loops');
+    }
+
+    handleBack = () => {
+        browserHistory.push('/');
+    }
     
     compareNumbers = () => {
         if (!this.state.numberOne || !this.state.numberTwo || !this.state.numberThree) {
@@ -116,6 +125,13 @@ class ConditionalActivity extends Component {
             <Row style={{width:"100%", color: "white"}}className="justify-content-md-center"> 
                 <h4>Least = <span style={{color: "#7FFF00"}}>{this.state.least}</span></h4>
             </Row>
+
+            <Button onClick={this.handleBack} className={'my-navigation-button'} >
+                Go To Previous Activity!
+            </Button>
+            <Button onClick={this.handleProceed} className={'my-navigation-button'} >
+                Proceed To Next Activity!
+            </Button>
         </Container>
 
         );

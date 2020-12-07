@@ -1,14 +1,16 @@
 import logo from './logo.svg';
 import Space from './Images/space.jpg';
 import './App.css';
-import LoopsActivity from './components/LoopsActivity';
-import VariablesActivity from './components/VariableActivity';
-import ConditionalActivity from './components/ConditionalActivity';
 import SortingActivity from './components/SortingActivity';
+import LoopsActivity from './components/LoopsActivity';
+import VariablesActivity from './components/VariableActivity'
+import ConditionalActivity from './components/ConditionalActivity'
+import { Router, Route, browserHistory } from 'react-router';
 
 function App() {
   return (
-    <div 
+    <div className="App">
+      <div 
       style={{
         backgroundImage: "url(" + Space + ")", 
         backgroundSize: "100%",
@@ -17,7 +19,18 @@ function App() {
         color: "white",
         overflow: "scroll"
       }}>
-      <SortingActivity/>
+        <Router history={browserHistory} >
+
+            <Route path='/' component={() => <VariablesActivity/>} />
+
+            <Route path='/conditional' component={() => <ConditionalActivity/>} />
+
+            <Route path='/loops' component={() => <LoopsActivity/>} />
+
+            <Route path='/sorting' component={() => <SortingActivity/>} />
+
+        </Router>
+      </div>
     </div>
   );
 }
