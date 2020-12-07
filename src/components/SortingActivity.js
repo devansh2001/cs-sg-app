@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button, InputGroup, FormControl } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
+
 class SortingActivity extends Component {
     constructor(props) {
         super(props);
@@ -192,6 +194,10 @@ class SortingActivity extends Component {
         return out;
     }
 
+    handleBack = () => {
+        browserHistory.push('/loops');
+    }
+
     render() {
         return (
             <div>
@@ -257,6 +263,10 @@ class SortingActivity extends Component {
 
                         </Col>
                     </Row>
+
+                    <Button onClick={this.handleBack} className={'my-navigation-button'}  >
+                        Go To Previous Activity!
+                    </Button>
                 </Container>
             </div>
         )

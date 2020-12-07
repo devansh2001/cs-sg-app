@@ -20,3 +20,7 @@ code {
 .sim-list {
   list-style-type: none
 }
+
+.my-navigation-button {
+  margin: 10px;
+}

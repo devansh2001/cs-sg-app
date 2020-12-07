@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, Container, Card} from 'react-bootstrap'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { browserHistory } from 'react-router';
 
 class VariableActivity extends Component {
     constructor(props) {
@@ -52,6 +53,10 @@ class VariableActivity extends Component {
         this.setState({
             phrase: ourPhrase
         })
+    }
+
+    handleProceed = () => {
+        browserHistory.push('/conditional');
     }
 
     render() {
@@ -110,6 +115,10 @@ class VariableActivity extends Component {
                     </Card>
                 </Col>
             </Row>
+
+            <Button onClick={this.handleProceed} className={'my-navigation-button'} >
+                Proceed To Next Activity!
+            </Button>
         </Container>
 
         );
