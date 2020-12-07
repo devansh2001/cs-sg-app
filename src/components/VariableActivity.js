@@ -61,19 +61,18 @@ class VariableActivity extends Component {
 
     render() {
         return (
-        <Container 
-        style={{width: "80%",
-        paddingLeft: 100,
-        paddingRight: 200,
-        paddingTop: 30,
-        paddingBottom: 30,
-        border: "3px solid lightGray"}}>
-            <Row style={{width:"100%"}}className="justify-content-md-center">
-                <Col xs={6} md={8}>
-                    <Form.Label>Enter Your Variable Here!</Form.Label>
-                    <Form.Group className="m-0">
+        <Container >
+            <br/>
+            <h2 style={{textAlign: "center"}}>Variables Activity</h2>
+            <hr/>
+            <Row style={{textAlign: "center"}} className="justify-content-md-center">
+                <Col >
+                    <Row className="justify-content-md-center">
+                    <Form.Label><h4>Enter Your Variable Below!</h4></Form.Label>
+                    </Row>  
+                    <Row className="justify-content-md-center">
+                    <Form.Group >
                         <Form.Control
-                        className="variableExample"
                         placeholder="Your Name Here"
                         value={this.state.textBoxValue}
                         onChange={e => this.setState({ textBoxValue: e.target.value})}
@@ -81,39 +80,37 @@ class VariableActivity extends Component {
                         />
                         <Button
                         className="btnFormSend"
-                        variant="outline-success"
                         onClick={this.onSubmit}
                         >
                         Go!
                         </Button>
-                    </Form.Group>  
+                        <br/>
+                    </Form.Group> 
+                    </Row> 
                 </Col>
             </Row>
-            <Row style={{width:"100%"}}className="justify-content-md-center">
-                <Col xs={6} md={8}>
-                    <Card>
-                        <Card.Body>Name = {this.state.name}</Card.Body>
-                    </Card>
-                </Col>
+            <Row style={{color: "white"}} className="justify-content-md-center">
+                    <h4> Name = <span style={{color: "#7FFF00"}}>{this.state.name}</span></h4>     
             </Row>
-            <Row style={{width:"100%"}}className="justify-content-md-center">
-                <Col xs={6} md={8}>
-                    <Card>
-                        <Card.Body>Make a random phrase with your variable name!</Card.Body>
-                        <Button
-                        className="btnFormSend"
-                        variant="outline-success"
-                        onClick={this.getRandomPhrase}
-                        >
-                        Make my random phrase!
-                        </Button>
-                    </Card>
-                </Col>
-                <Col xs={6} md={8}>
-                    <Card>
-                        <Card.Body>{this.state.phrase}</Card.Body>
-                    </Card>
-                </Col>
+            <hr/>
+            <Row style={{color: "white"}} className="justify-content-md-center">
+                <h4>Make a random phrase with your variable name!</h4>
+            </Row>
+            <br/>
+            <Row className="justify-content-md-center">
+                <Button
+                className="btnFormSend"
+                onClick={this.getRandomPhrase}
+                >
+                Make my random phrase!
+                </Button>
+            </Row>
+            <br/>
+            <Row style={{color: "#7FFF00"}} className="justify-content-md-center">
+                <div>
+                    <h4>{this.state.phrase}</h4>
+                </div>
+               
             </Row>
 
             <Button onClick={this.handleProceed} className={'my-navigation-button'} >

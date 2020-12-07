@@ -70,20 +70,21 @@ class ConditionalActivity extends Component {
 
     render() {
         return (
-        <Container 
-        style={{width: "80%",
-        paddingLeft: 100,
-        paddingRight: 200,
-        paddingTop: 30,
-        paddingBottom: 30,
-        border: "3px solid lightGray"}}>
+        <Container >
+            <br/>
+            <h2 style={{textAlign: "center"}}>Conditionals Activity</h2>
+            <hr/>
             <Row style={{width:"100%"}}className="justify-content-md-center">
-                <Col xs={6} md={8}>
-                    <Form.Label>Enter three numbers:</Form.Label>
-                    <Form.Group className="m-0">
+                <Col >
+                    <Row className="justify-content-md-center">
+                        <Form.Label><h4>Enter three numbers:</h4></Form.Label>
+                    </Row>
+                    <Row className="justify-content-md-center">
+                    <Form.Group >
                         <Form.Control
                         className="variableExample"
                         placeholder="Number One"
+                        style={{marginTop: "10px"}}
                         value={this.state.numberOne}
                         onChange={e => this.setState({ numberOne: e.target.value })}
                         type="text"
@@ -91,6 +92,7 @@ class ConditionalActivity extends Component {
                         <Form.Control
                         className="variableExample"
                         placeholder="Number Two"
+                        style={{marginTop: "10px"}}
                         value={this.state.numberTwo}
                         onChange={e => this.setState({ numberTwo: e.target.value })}
                         type="text"
@@ -98,33 +100,30 @@ class ConditionalActivity extends Component {
                         <Form.Control
                         className="variableExample"
                         placeholder="Number Three"
+                        style={{marginTop: "10px"}}
                         value={this.state.numberThree}
                         onChange={e => this.setState({ numberThree: e.target.value})}
                         type="text"
                         />
+                        <Row className="justify-content-md-center">
                         <Button
                         className="btnFormSend"
-                        variant="outline-success"
+                        style={{marginTop: "30px"}}
                         onClick={this.compareNumbers}
                         >
                         Compare
                         </Button>
-                    </Form.Group>  
+                        </Row>
+                    </Form.Group> 
+                    </Row> 
                 </Col>
             </Row>
-            <Row style={{width:"100%"}}className="justify-content-md-center">
-                <Col xs={6} md={8}>
-                    <Card>
-                        <Card.Body>Greatest = {this.state.greatest}</Card.Body>
-                    </Card>
-                </Col>
+            <hr/>
+            <Row style={{width:"100%", color: "white"}}className="justify-content-md-center">
+                <h4>Greatest = <span style={{color: "#7FFF00"}}>{this.state.greatest}</span></h4>    
             </Row>
-            <Row style={{width:"100%"}}className="justify-content-md-center">
-                <Col xs={6} md={8}>
-                    <Card>
-                        <Card.Body>Least = {this.state.least}</Card.Body>
-                    </Card>
-                </Col>
+            <Row style={{width:"100%", color: "white"}}className="justify-content-md-center"> 
+                <h4>Least = <span style={{color: "#7FFF00"}}>{this.state.least}</span></h4>
             </Row>
 
             <Button onClick={this.handleBack} className={'my-navigation-button'} >
