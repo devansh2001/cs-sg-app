@@ -12,7 +12,7 @@ function App() {
       style={{
         backgroundImage: "url(" + Space + ")", 
         backgroundSize: "100%",
-        backgroundRepeat: "no-repeat",
+        backgroundRepeat: "repeat",
         height: "100vh",
         color: "white",
         overflow: "scroll"
