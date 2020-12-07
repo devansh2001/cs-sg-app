@@ -49,6 +49,16 @@ class SortingActivity extends Component {
                 
             }
         }
+        // add sorted array
+        let currentSimulatedStates = this.state.simulationSteps;
+        currentSimulatedStates.push({
+            'array': list.map(element => element),
+            'i': null,
+            'j': null
+        });
+        this.setState({
+            simulationSteps: currentSimulatedStates
+        })
         console.log(list);
         return list;
     }
