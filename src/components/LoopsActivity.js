@@ -17,6 +17,8 @@ const OriginalPattern  = () => {
         </div>
     )
 }
+let PUT_CONDITION_HERE = false 
+
 class LoopsActivity extends Component {
     constructor(props) {
         super(props);
@@ -32,18 +34,83 @@ class LoopsActivity extends Component {
     handleBack = () => {
         browserHistory.push('/conditional');
     }
-
-    // TODO: Complete the completePattern method below using a nested for loop
-
+  
+     /*
+    * This is were you will complete your code for the triangle
+    * This can be a tricky problem when first learning about loops so let's break it down
+    * You will need two loops and one loops will be inside of the other
+    * The first loop will keep track of the row you are on
+    * The second loop with keep track of how many stars you have printed out
+    * 
+    * Think of it like this:
+    * First row (first iteration of row loop):
+    *   Only print out 1 stars
+    *   *
+    * Second row (second iteration of row loop):
+    *   Print out 2 stars
+    *   **
+    * Third row (third iteration of row loops):
+    *   Print out 3 stars
+    *   ***
+    * and so on until 5
+    * 
+    * Another hint:
+    * The number of stars you print out is directly related to the row you are on
+    */
     completePattern = () => {
-        // student code
+        // this variable holds your pattern, you need not worry about it
         let pattern = [];
-        for (let i = 0; i < 5; i++) {    
-            for (let j = 0; j <= i; j++) {
+
+        /*
+        * Step 1:
+        * Create a regular variable to keep track of what row you are on
+        * Hint: looking at the slide examples might help
+        */
+        // create row variable here
+
+        /*
+        * Step 2:
+        * Create the condition for the outer loop using the row variable above
+        * Remember - we only want to have 5 rows
+        */
+        while (PUT_CONDITION_HERE) {
+
+            /*
+            * Step 4:
+            * Create a regular variable to keep track of how many times you print a star in a row
+            * We create the variable here instead of outside of the main loop so that it resets everytime the row loops is run
+            * Try moving it outside of the first loop to see what happens
+            */
+            // create star variable here
+
+            /*
+            * Step 5:
+            * Create the condition for the inner loop using the star variable above
+            * Remember - the number of stars we want to print out is directly related to the row number we're on
+            * Hint: we will want to use the row variable in this condition along with the star variable
+            */
+            while (PUT_CONDITION_HERE) {
+                
+                // this will add our star to the pattern for us
                 pattern.push("* ");
+
+                /*
+                * Step 6:
+                * Add 1 to the value of the star variable so that it is updated each time the loop is run
+                * If we forget this, it will print out an infinite number of stars for that row
+                */
+                // increment the star variable here
             }
+            // this line of code starts a new line for each row
             pattern.push(<br/>);
+            /*
+            * Step 3:
+            * Add 1 to the value of the row variable so that it is updated each time the loop runs
+            * If we forget this, the loop will run forever
+            */
+            // increment row variable here
         }
+
         this.setState ({ userPattern: pattern });
         return pattern;
     }

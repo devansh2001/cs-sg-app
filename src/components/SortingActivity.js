@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button, InputGroup, FormControl } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
+let PUT_CONDITION_HERE = false 
+let j = 0
 
 class SortingActivity extends Component {
     constructor(props) {
@@ -14,9 +16,70 @@ class SortingActivity extends Component {
         }
     }
 
-    // TASK: Complete the 'myBubbleSort' method below
+    /*
+    * This is where you will code for the bubble sort method
+    */
     bubbleSort = (list) => {
-        
+        let lengthOfList = list.length
+        /*
+        * Step 1:
+        * create a variable to keep track of the number of times you perform bubble sort
+        */
+        // create variable here
+
+        /*
+        * Step 2:
+        * run the bubble sort loop the correct number of times
+        * Hint: You will want to run this for each element in the list
+        */
+        while (PUT_CONDITION_HERE) {
+
+            /*
+            * Step 4:
+            * create a variable to keep track of where you are swapping for this iteration in the list
+            * Think of this as a pointer that will show where you want to swap
+            * In the animation, this would be where the bars are colored
+            * Name this variable j
+            */
+            // create a variable here
+
+            /*
+            * Step 5:
+            * make the condition for the loop that takes care of swapping the variables
+            * this can be thought of as a "pointer"
+            * it points to the current element of the list
+            * Hint: You will want to have the pointer go through each element in the list
+            */
+            while (PUT_CONDITION_HERE) {
+
+                /*
+                * Step 6:
+                * Check if the number to the right of it in the list is greater than the number the pointer is looking at
+                * Since we haven't went over lists, to access these numbers use:
+                * list[j] and list[j + 1]
+                * The pseudo code will also help you with this!
+                */
+                if (PUT_CONDITION_HERE) {
+                    // this swaps the position of the two items in the list
+                    let temp = list[j]
+                    list[j] = list[j+1]
+                    list[j+1] = temp
+                }
+
+                /*
+                * Step 7:
+                * Add 1 to the pointer variable to move the pointer up the list
+                */
+               // increment pointer variable here
+            }
+
+            /*
+            * Step 3:
+            * Add 1 to the first variable to make sure the loop doesn't run forever
+            */
+            // increment variable here
+        }
+
 
         return list;
     }
