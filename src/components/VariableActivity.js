@@ -37,17 +37,12 @@ class VariableActivity extends Component {
         })
     };
     
-    /*
-    * Add your name variable to the phrase passed in and then change the value of phrase to this new string
-    * Look at the slides if you forget how to change state or make a regular variable!
-    * Remember: you are able to access parameters like they are regular variables
-    */
     getRandomPhrase = (phrase, name) => {
 
         /* Step 1:
-        * Create and assign new variable named ourPhrase here
-        * create a new regular variable that joins the state name variable with the parameter phrase
-        * You will need to access the state variable name and the phrase parameter
+        * Create and assign a new variable named ourPhrase here
+        * create a new regular variable that joins the parameter name with the parameter phrase
+        * You will need to use name and pharse
         * Remember: we can add strings together using concatenation (+)
         * You can play around with this by adding extra spaces, changing the order, etx.
         */
