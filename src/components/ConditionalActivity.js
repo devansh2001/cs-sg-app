@@ -81,9 +81,9 @@ class ConditionalActivity extends Component {
         
        /*
         * Step 2:
-        * Create the logic for finding the greatest number using the variables number1, number2, and number3 declared above
+        * Create the logic for finding the smallest number using the variables number1, number2, and number3 declared above
         * Since there are three varaibles, we must check every variable against the other two
-        * For each case, we then will assign the correct number variable to greatest
+        * For each case, we then will assign the correct number variable to least
         * Example:
         * if (number1 <= number2 && number1 <= number3) {
         *   least = number1
