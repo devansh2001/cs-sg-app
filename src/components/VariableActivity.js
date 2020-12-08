@@ -3,7 +3,7 @@ import { Form, Button, Container, Card} from 'react-bootstrap'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { browserHistory } from 'react-router';
-
+let ourPhrase = ""
 class VariableActivity extends Component {
     constructor(props) {
         super(props);
@@ -19,32 +19,22 @@ class VariableActivity extends Component {
         ]
     }
 
-    /*
-    * Step 1:
-    * Add a variable in the state that is called "name"
-    * Set the variable to have a default of ""
-    * Look at the slides if you forget how to declare a state variable!
-    */
     state = {
         textBoxValue: "",
         phrase: "",
-        // add the new variable here
+        name: ""
     };
     
     /*
-    * Step 2:
-    * Change the value of the state variable "name" to this.state.textBoxValue
-    * this.state.textBoxValue is the variable that holds the value you typed into thet textbox on the page
-    * This exercise also has you practicing how to call a state variable with this.state.textBoxValue!
-    * Look at the slides if you forget how to change state!
-    * 
     * Learning note for onSubmit:
     * This particular method is called whenever the "Go!" button is pressed
     * What it is doing is assigning the value in the text box to your name variable
     * This variable is accessed to be displayed for you to see in the JSX code below
     */
     onSubmit = () => {
-        // change the value of name here
+        this.setState({
+            name: this.state.textBoxValue
+        })
     };
     
     /*
@@ -52,22 +42,19 @@ class VariableActivity extends Component {
     * Look at the slides if you forget how to change state or make a regular variable!
     * Remember: you are able to access parameters like they are regular variables
     */
-    getRandomPhrase = (phrase) => {
+    getRandomPhrase = (phrase, name) => {
 
-        /* Step 3:
-        * Create and assign new variable here
+        /* Step 1:
+        * Create and assign new variable named ourPhrase here
         * create a new regular variable that joins the state name variable with the parameter phrase
         * You will need to access the state variable name and the phrase parameter
         * Remember: we can add strings together using concatenation (+)
         * You can play around with this by adding extra spaces, changing the order, etx.
         */
         
-
-        /* Step 4:
-        * Change the value of state variable phrase to the new phrase you made above
-        * You will need to use the setState({}) method to change phrase
-        * And you will need to use the variable you made above
-        */
+       this.setState({
+           phrase: ourPhrase
+       })
     }
 
     handleProceed = () => {
@@ -119,7 +106,7 @@ class VariableActivity extends Component {
                     let newPhrase = this.phrases[this.currentPhraseIndex]
                     this.currentPhraseIndex += 1
                     this.currentPhraseIndex %= 7
-                    this.getRandomPhrase(newPhrase)
+                    this.getRandomPhrase(newPhrase, this.state.name)
                 }}
                 >
                 Make my random phrase!
