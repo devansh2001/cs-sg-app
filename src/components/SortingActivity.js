@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button, InputGroup, FormControl } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 let PUT_CONDITION_HERE = false 
 let j = 0
+
 class SortingActivity extends Component {
     constructor(props) {
         super(props);
@@ -110,6 +112,16 @@ class SortingActivity extends Component {
                 
             }
         }
+        // add sorted array
+        let currentSimulatedStates = this.state.simulationSteps;
+        currentSimulatedStates.push({
+            'array': list.map(element => element),
+            'i': null,
+            'j': null
+        });
+        this.setState({
+            simulationSteps: currentSimulatedStates
+        })
         console.log(list);
         return list;
     }
@@ -255,6 +267,10 @@ class SortingActivity extends Component {
         return out;
     }
 
+    handleBack = () => {
+        browserHistory.push('/loops');
+    }
+
     render() {
         return (
             <div>
@@ -329,6 +345,10 @@ class SortingActivity extends Component {
 
                         </Col>
                     </Row>
+
+                    <Button onClick={this.handleBack} className={'my-navigation-button'}  >
+                        Go To Previous Activity!
+                    </Button>
                 </Container>
             </div>
         )

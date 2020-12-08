@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Container, Row, Col, Button} from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 const OriginalPattern  = () => {
     let stars = [];
@@ -26,8 +27,15 @@ class LoopsActivity extends Component {
         }
     }
 
-    
-    /*
+    handleProceed = () => {
+        browserHistory.push('/sorting');
+    }
+
+    handleBack = () => {
+        browserHistory.push('/conditional');
+    }
+  
+     /*
     * This is were you will complete your code for the triangle
     * This can be a tricky problem when first learning about loops so let's break it down
     * You will need two loops and one loops will be inside of the other
@@ -184,6 +192,13 @@ class LoopsActivity extends Component {
                     </Row>
                 </Col>
 
+                <Button onClick={this.handleBack} className={'my-navigation-button'} >
+                    Go To Previous Activity!
+                </Button>
+
+                <Button onClick={this.handleProceed} className={'my-navigation-button'} >
+                    Proceed To Next Activity!
+                </Button>
             </Container>
             
         );
